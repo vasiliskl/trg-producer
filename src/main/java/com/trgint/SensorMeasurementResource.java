@@ -10,8 +10,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.eclipse.microprofile.reactive.messaging.Channel;
-import org.eclipse.microprofile.reactive.messaging.Emitter;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.jboss.logging.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -37,6 +38,8 @@ public class SensorMeasurementResource {
      */
     @POST
     @Path("/measurement")
+    @Counted(name = "measurementsReceived", description = "How many measurements have been received from the sensors.")
+    @Timed(name = "measurementsTimer", description = "A measure of how long it takes to receive the measurement and add it to queue.", unit = MetricUnits.MILLISECONDS)
     public Response addMeasurementToQueue(@Valid SensorMeasurement measurement) {
     	
 		try 
