@@ -1,12 +1,26 @@
 package com.trgint;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
+/**
+ * @author Vasilis Kleanthous
+ * This class implements the input of the REST endpoints and represents the data coming from sensors.
+ *
+ */
 public class SensorMeasurement {
 
+	@NotNull
 	private Long sensorId;
+	@Digits(integer=2, fraction=6)
 	private Double latitude;
+	@Digits(integer=2, fraction=6)
 	private Double longitude;
+	@Digits(integer=2, fraction=2)
 	private Double humidity;
+	@Digits(integer=2, fraction=1)
 	private Double temperature;
+	@Digits(integer=2, fraction=1)
 	private Double pressure;
 	
 	public Long getSensorId() {

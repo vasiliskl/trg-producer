@@ -2,6 +2,11 @@ package com.trgint;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Vasilis Kleanthous
+ * This class implements the errors returned by the REST endpoints.
+ *
+ */
 public class SensorMeasurementError {
 
 	@JsonProperty("error_code")
