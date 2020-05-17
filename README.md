@@ -4,7 +4,7 @@ This project implements the producer of the queue.
 It receives the sensor measurements by providing an end-point, does some basic validations and adds the sensor measurements in a queue.
 The REST end-point provided is /sensor/measurement. Example:
 
-URL
+POST URL
 
 http://localhost:8080/sensor/measurement
 
